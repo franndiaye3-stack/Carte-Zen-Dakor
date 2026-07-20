@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Carte de visite numérique de Jean Dupont - Développeur Web Senior">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta property="og:title" content="Jean Dupont - Développeur Web Senior">
+    <meta property="og:description" content="Développeur Web passionné, créateur de solutions numériques innovantes">
+    <meta property="og:image" content="images/profile.jpg">
+    <meta property="og:type" content="profile">
+    <meta name="twitter:card" content="summary">
+    <title>Jean Dupont | Développeur Web Senior - Carte de visite numérique</title>
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           VARIABLES CSS - Personnalisation facile
+           ============================================ */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #3b82f6;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.15);
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 50%;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* ============================================
+           RESET & STYLES DE BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ============================================
+           CONTAINER PRINCIPAL DE LA CARTE
+           ============================================ */
+        .vcard-container {
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           HERO BANNER
+           ============================================ */
+        /* HERO BANNER */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    overflow: visible;  /* ← CHANGE : permet à la photo de dépasser */
+    box-shadow: var(--shadow-lg);
+}
+
+/* WRAPPER DE LA PHOTO */
+.profile-photo-wrapper {
+    position: absolute;
+    bottom: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.2));  /* ← AJOUTÉ : ombre portée */
+}
+
+.profile-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: var(--radius-full);
+    border: 5px solid white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    object-fit: cover;
+    background: var(--surface);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.profile-photo:hover {
+    transform: scale(1.1) translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* CARD CONTENT */
+.card-content {
+    background: var(--surface);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: 80px 24px 28px;  /* ← CHANGE : plus d'espace en haut */
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    z-index: 5;
+}
+
+        /* Informations personnelles */
+        .personal-info {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .full-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 8px 0 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .job-title {
+            font-size: 15px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .company-name {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .company-name i {
+            color: #f59e0b;
+            margin-right: 4px;
+        }
+
+        .slogan {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 16px;
+            padding: 0 20px;
+            line-height: 1.5;
+        }
+
+        .description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 0 10px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Badge vérifié */
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #f0fdf4;
+            color: #15803d;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .verified-badge i {
+            margin-right: 6px;
+            color: #22c55e;
+        }
+
+        /* ============================================
+           BOUTONS D'ACTION PRINCIPAUX
+           ============================================ */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-main);
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            font-size: 16px;
+        }
+
+        .btn-call {
+            background: #22c55e;
+        }
+        .btn-call:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34,197,94,0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+        }
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+        }
+
+        .btn-email {
+            background: #6366f1;
+        }
+        .btn-email:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99,102,241,0.4);
+        }
+
+        .btn-website {
+            background: #0ea5e9;
+        }
+        .btn-website:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14,165,233,0.4);
+        }
+
+        .btn-map {
+            background: #ef4444;
+        }
+        .btn-map:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239,68,68,0.4);
+        }
+
+        .btn-vcard {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .btn-vcard:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102,126,234,0.5);
+        }
+
+        .btn-share {
+            background: #f59e0b;
+        }
+        .btn-share:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245,158,11,0.4);
+        }
+
+        .btn-calendar {
+            background: #8b5cf6;
+        }
+        .btn-calendar:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139,92,246,0.4);
+        }
+
+        /* ============================================
+           INFORMATIONS DE CONTACT
+           ============================================ */
+        .contact-details {
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item i {
+            width: 24px;
+            text-align: center;
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .contact-item a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        /* Horaires */
+        .hours-section {
+            background: #f0f9ff;
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .hours-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .hours-list {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .hours-list span {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* ============================================
+           RÉSEAUX SOCIAUX
+           ============================================ */
+        .social-section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .social-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .facebook { background: #1877f2; }
+        .instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .linkedin { background: #0a66c2; }
+        .x { background: #000000; }
+        .tiktok { background: #000000; }
+        .youtube { background: #ff0000; }
+        .github { background: #333; }
+        .snapchat { background: #FFFC00; color: #000; }
+        .telegram { background: #0088cc; }
+
+        /* ============================================
+           GOOGLE MAPS EMBED
+           ============================================ */
+        .map-container {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            aspect-ratio: 16/9;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .card-footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .card-footer i {
+            color: #ef4444;
+            margin: 0 2px;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        
+        /* Smartphones */
+        @media (max-width: 480px) {
+            .vcard-container {
+                max-width: 100%;
+            }
+            
+            .hero-banner {
+                height: 150px;
+            }
+            
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+                bottom: -40px;
+            }
+            
+            .card-content {
+                padding: 50px 16px 20px;
+            }
+            
+            .full-name {
+                font-size: 20px;
+            }
+            
+            .action-buttons {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .btn {
+                font-size: 13px;
+                padding: 10px 12px;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+
+        /* Tablettes */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .vcard-container {
+                max-width: 500px;
+            }
+        }
+
+        /* Ordinateurs */
+        @media (min-width: 769px) {
+            .vcard-container {
+                max-width: 440px;
+            }
+            
+            body {
+                padding: 40px;
+            }
+        }
+
+        /* Accessibilité - Réduction de mouvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Mode sombre système */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --surface: #1e293b;
+                --background: #0f172a;
+                --text-primary: #f1f5f9;
+                --text-secondary: #94a3b8;
+                --border: #334155;
+            }
+            
+            .contact-details {
+                background: #1e293b;
+            }
+            
+            .hours-section {
+                background: #1e293b;
+            }
+            
+            .card-footer {
+                border-top-color: #334155;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="vcard-container" role="main" aria-label="Carte de visite numérique de Alpha THIAM">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-pattern">
+            </div>
+            
+            <div class="profile-photo-wrapper">
+                <img src="photoalpha.jpg" 
+                     alt="Photo de profil Alpha THIAM" 
+                     class="profile-photo"
+                     loading="lazy">
+            </div>
+        </div>
+
+        <!-- Contenu de la carte -->
+        <div class="card-content">
+            <!-- Informations personnelles -->
+            <div class="personal-info">
+                <h1 class="full-name">Alpha THIAM</h1>
+                <p class="job-title">PDG</p>
+                <p class="company-name">
+                    <i class="fa-solid fa-building"></i> ZEN DAKOR
+                </p>
+                <p class="slogan">"Ensemble, transformons vos ambitions en réussite."</p>
+                <p class="description">
+                    Nous vous proposons des services stratégiques sur mesure et personnalisés, adaptés à chaque profil et à chaque secteur d’activité. 
+                    Notre équipe polyvalente offre des solutions pratiques pour simplifier votre quotidien et soutenir durablement votre croissance.
+                </p>
+                <div class="verified-badge">
+                    <i class="fa-solid fa-circle-check"></i> Profil vérifié
+                </div>
+            </div>
+
+            <!-- Boutons d'action principaux -->
+            <div class="action-buttons" role="group" aria-label="Actions principales">
+                <a href="tel:+221768004210" class="btn btn-call" aria-label="Appeler le +221 768 00 42 10">
+                    <i class="fa-solid fa-phone"></i> Appeler
+                </a>
+                <a href="https://wa.me/+221768004210" class="btn btn-whatsapp" target="_blank" rel="noopener" aria-label="Contacter via WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:zendakor.org@gmail.com" class="btn btn-email" aria-label="Envoyer un email à zendakor.org@gmail.com">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+                <a href="https://www.zendakor.com" class="btn btn-website" target="_blank" rel="noopener" aria-label="Visiter le site web">
+                    <i class="fa-solid fa-globe"></i> Site Web
+                </a>
+                <a href="https://maps.google.com/?q=48.8566,2.3522" class="btn btn-map" target="_blank" rel="noopener" aria-label="Ouvrir dans Google Maps">
+                    <i class="fa-solid fa-location-dot"></i> Localisation
+                </a>
+                <a href="#" class="btn btn-vcard" onclick="generateVCard()" aria-label="Télécharger la carte de visite">
+                   <i class="fa-solid fa-address-card"></i> Ajouter aux contacts
+                 </a>
+                <a href="#" class="btn btn-share" onclick="navigator.share({title:'Alpha THIAM - PDG', url:window.location.href})" aria-label="Partager cette carte">
+                    <i class="fa-solid fa-share-nodes"></i> Partager
+                </a>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Rendez-vous+avec+Alpha+THIAM" class="btn btn-calendar" target="_blank" rel="noopener" aria-label="Ajouter un rendez-vous au calendrier">
+                    <i class="fa-solid fa-calendar-plus"></i> RDV
+                </a>
+            </div>
+
+            <!-- Coordonnées -->
+            <div class="contact-details" aria-label="Coordonnées">
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Lamine Gueye, Dakar, Sénégal</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+221768004210">+221 768 00 42 10</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <a href="https://wa.me/+221768004210">+221 768 00 42 10</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:zendakor.org@gmail.com">zendakor.org@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <a href="https://www.zendakor.com" target="_blank" rel="noopener">www.zendakor.com</a>
+                </div>
+            </div>
+
+            <!-- Horaires d'ouverture -->
+<div class="hours-section" aria-label="Horaires d'ouverture">
+    <div class="hours-title">
+        <i class="fa-regular fa-clock"></i> Disponibilité
+    </div>
+    <div class="hours-list" style="text-align: center; font-size: 15px; font-weight: 500; color: var(--text-primary);">
+        <i class="fa-solid fa-check-circle" style="color: #22c55e; margin-right: 8px;"></i>
+        Service ouvert tous les jours.
+    </div>
+</div>
+
+            <!-- Google Maps -->
+            <div class="map-container" aria-label="Localisation sur Google Maps">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3859.8528114467294!2d-17.44096172675321!3d14.664293125517828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sLamine%20Gueye%2C%20Dakar%2C%20Senegal!5e0!3m2!1sfr!2ssn!4v1784571483446!5m2!1sfr!2ssn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+
+            <!-- Réseaux sociaux -->
+            <div class="social-section" aria-label="Réseaux sociaux">
+                <h2 class="section-title">Suivez-moi</h2>
+                <div class="social-grid">
+                    <a href="https://www.facebook.com/zendakor16" class="social-icon facebook" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="" class="social-icon instagram" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/zen-dakor-137690410/" class="social-icon linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="" class="social-icon x" target="_blank" rel="noopener" aria-label="X (Twitter)">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@zen.dakor6?is_from_webapp=1&sender_device=pc" class="social-icon tiktok" target="_blank" rel="noopener" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="" class="social-icon youtube" target="_blank" rel="noopener" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                
+                    <a href="" class="social-icon snapchat" target="_blank" rel="noopener" aria-label="Snapchat">
+                        <i class="fa-brands fa-snapchat"></i>
+                    </a>
+                    <a href="" class="social-icon telegram" target="_blank" rel="noopener" aria-label="Telegram">
+                        <i class="fa-brands fa-telegram-plane"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="card-footer">
+                <p>© 2026 - Tel: 774537806 <i class="fa-solid fa-heart"></i> à Dakar</p>
+            </div>
+        </div>
+    </main>
+    <script>
+function generateVCard() {
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Alpha THIAM
+N:THIAM;Alpha;;;
+TEL;TYPE=CELL:+221768004210
+TEL;TYPE=WORK:+221768004210
+EMAIL;TYPE=WORK:alpha.thiam@techpro.fr
+ADR;TYPE=WORK:;;Lamine Gueye, Dakar, Senegal
+ORG:Zen Dakor
+TITLE:PDG
+URL:https://www.zendakor.com
+END:VCARD`;
+
+    const blob = new Blob([vcard], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'contact.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
